@@ -1,6 +1,10 @@
 package glispextensions
 
-import "fmt"
+import (
+	"fmt"
+
+	glisp "github.com/zhemao/glisp/interpreter"
+)
 
 type GlispVar struct {
 	Value interface{}
@@ -8,4 +12,12 @@ type GlispVar struct {
 
 func (gv GlispVar) SexpString() string {
 	return fmt.Sprint(gv.Value)
+}
+
+type GlispReference struct {
+	Value glisp.Sexp
+}
+
+func (gr *GlispReference) SexpString() string {
+	return fmt.Sprint(gr.Value.SexpString())
 }
