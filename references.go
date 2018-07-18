@@ -52,7 +52,7 @@ func SetReferenceValue(
 func ImportReferences(env *glisp.Glisp) {
 	// NewReference is named "cpy" instead of "new" to avoid any confusion
 	// about the behaviour. (it copies the value into a new reference)
-	env.AddFunction("&cpy", NewReference)
+	env.AddFunction("&copy", NewReference)
 	env.AddFunction("&get", Dereference)
 	env.AddFunction("&set", SetReferenceValue)
 }
